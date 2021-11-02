@@ -6,10 +6,9 @@ export const render = (selector, component) => {
   patch($app, component.template);
 };
 
-let state = {};
-
 export const createComponent = ({
   template,
+  state = {},
   methods = {},
   initialState = {},
 }) => {
@@ -36,7 +35,8 @@ export const createComponent = ({
     );
 
   return (props) => {
-    previous = template({ ...props, ...state, methods: mappedMethods(props) });
+    const methods = mappedMethods(props);
+    previous = template({ ...props, ...state, methods });
     return previous;
   };
 };
