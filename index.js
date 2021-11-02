@@ -1,7 +1,7 @@
 import { render } from './framework/index';
-import { div } from './framework/element';
+import { User } from './src/user';
 
 const firstName = 'Elvin';
 const lastName = 'Ciqueira';
 
-render('#app', div`Hello ${firstName} ${lastName}!`);
+render('#app', User({ firstName, lastName }));
