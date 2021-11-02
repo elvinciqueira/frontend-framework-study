@@ -1,7 +1,8 @@
+import { init, eventListenersModule } from 'snabbdom';
+const patch = init([eventListenersModule]);
+
 export const render = (selector, component) => {
+  console.log('component', component);
   const $app = document.querySelector(selector);
-  const $element = document.createElement(component.type);
-  const $textContent = document.createTextNode(component.template);
-  $element.appendChild($textContent);
-  $app.appendChild($element);
+  patch($app, component.template);
 };
