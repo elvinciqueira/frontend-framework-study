@@ -8,8 +8,10 @@ const initialState = {
 const createReducer = (args) => (acc, currentString, index) => {
   const currentArg = args[index];
 
+  console.log(currentArg);
+
   if (currentArg && currentArg.type === 'event') {
-    return { ...acc, on: { click: currentArg.click } };
+    return { ...acc, on: { ...currentArg.event } };
   }
 
   return {

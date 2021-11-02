@@ -1,4 +1,6 @@
-export const onClick = (f) => ({
+export const createEventListener = (name) => (f) => ({
   type: 'event',
-  click: f,
+  event: { [name]: f },
 });
+
+export const onClick = createEventListener('click');
